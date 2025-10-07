@@ -1,7 +1,8 @@
 <script setup>
-// import { assets } from '../store/WebStore.ts'
+import { ref } from 'vue'
 import { useWebStore } from "../store/WebStore.js";
 const webStore = useWebStore();
+let mobileMenu = ref(false)
 </script>
 
 <template>
@@ -17,10 +18,10 @@ const webStore = useWebStore();
     <header class="flex p-5 xl:px-0 justify-between xl:justify-around">
       <img v-bind:src="webStore.logo" class="h-8 w-auto" />
       <div 
-          @click="webStore.showMobileMenu()">
+          @click="(mobileMenu === false ? mobileMenu = true : mobileMenu = false)">
         <img
           src="/bars.svg"
-          class="h-10 w-auto bg-green-600 p-2 hover:bg-green-400 xl:hidden"
+          class="h-9 w-9 bg-green-600 p-2 hover:bg-green-400 xl:hidden"
         />
       </div>
       <nav class="hidden xl:flex justify-end xl:gap-x-4">
@@ -62,19 +63,19 @@ const webStore = useWebStore();
         </RouterLink>
       </nav>
       <nav
-        v-if="webStore.mobileMenu === true"
-        class="bg-white absolute right-0 flex flex-col w-[60%] z-10"
+        v-if="mobileMenu === true"
+        class="bg-white absolute right-0 flex flex-col w-[60%] z-10 rounded-2xl rounded-t-none pr-5 overflow-hidden"
       >
         <!-- Mobile screen menu setting-->
         <div
-          v-on:click="webStore.showMobileMenu()"
-          class="self-end text-xl text-white py-0 px-3.5 bg-green-600 border-2 border-gray-400 w-fit h-fit hover:bg-green-200 hover:text-gray-800 cursor-default"
+          v-on:click="mobileMenu === true ? mobileMenu = false : mobileMenu = true"
+          class="self-end text-xl text-white py-0 px-3.5 bg-green-600 border-2 border-gray-400 w-fit h-fit hover:bg-green-200 hover:text-gray-800 cursor-default mb-1"
         >
           x
         </div>
         <RouterLink
           v-bind:to="{ name: 'Home' }"
-          class="text-lg xl:text-xl text-gray-400 font-semibold px-3 py-1.5 border-2 border-b-0 border-gray-400 hover:bg-green-600 hover:text-white uppercase"
+          class="text-lg xl:text-xl text-gray-400 font-semibold px-3 py-1.5 border-2 border-b-0 border-gray-400 hover:bg-green-600 hover:text-white uppercase rounded-t-2xl"
         >
           Home</RouterLink
         >
@@ -110,7 +111,7 @@ const webStore = useWebStore();
         >
         <RouterLink
           v-bind:to="{ name: 'Contact' }"
-          class="text-lg xl:text-xl text-gray-400 font-semibold p-3 py-1.5 border-2 border-gray-400 hover:bg-green-600 hover:text-white uppercase"
+          class="text-lg xl:text-xl text-gray-400 font-semibold p-3 py-1.5 border-2 border-gray-400 hover:bg-green-600 hover:text-white uppercase rounded-b-2xl"
         >
           Contact Us</RouterLink
         >

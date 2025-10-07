@@ -204,7 +204,7 @@ let moreinfosaloon2 = ref(false);
                 </p>
               </div>
               <article
-                v-if="moreinfobus1 === true"
+                v-if="moreinfobus4 === true"
                 class="text-xs text-gray-900/50 pl-3"
               >
                 With nine seats, the H-1 Bus has all the space you need. The 842
