@@ -3,11 +3,11 @@ import { useWebStore } from "../store/WebStore.js";
 const webStore = useWebStore();
 </script>
 <template>
-  <div class="flex flex-col xl:grid xl:grid-cols-2 w-full items-center">
-    <pre
-      class="w-full flex flex-wrap pl-20 text-center text-xs text-gray-400 font-thin"
-    >&copy; {{webStore.brand}} 2016. All Rights Reserved | Website by<pre class="text-black font-bold"> {{webStore.developer}}</pre></pre>
-    <nav class="flex flex-wrap w-full xl:justify-end items-center space-x-4 xl:mr-6 p-1 xl:p-4">
+  <div class="flex flex-col px-10 lg:grid lg:grid-cols-2 w-full items-center">
+    <p
+      class="w-full flex flex-wrap lg:pl-20 text-center text-xs text-gray-400 font-thin"
+    >&copy; {{webStore.brand}} 2016. All Rights Reserved | Website by.. <span class="text-black font-bold"> {{webStore.developer}}</span></p>
+    <nav class="flex flex-wrap w-full lg:justify-end items-center space-x-4 lg:mr-6 p-1 lg:p-4">
       <RouterLink
         v-bind:to="{ name: 'Home' }"
         class="text-gray-600 text-sm font-semibold uppercase hover:text-green-600"

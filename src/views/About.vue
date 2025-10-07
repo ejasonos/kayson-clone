@@ -1,5 +1,4 @@
 <template>
-  <!-- Start building this page -->
   <section class="xl:px-20 pt-10">
     <div class="grid grid-cols-2">
       <article id="tops">
@@ -83,7 +82,7 @@
           </p>
         </div>
       </article>
-      <img class="flex xl:ml-10 self-center" src="/aboutkay.jpg" />
+      <img class="flex xl:ml-10 self-start" src="/aboutkay.jpg" />
     </div>
     <div
       class="flex justify-center text-center text-md text-white bg-green-600 py-4 uppercase mt-10"
