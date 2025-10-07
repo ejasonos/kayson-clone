@@ -86,7 +86,7 @@
       <img class="flex xl:ml-10 self-center" src="../assets/aboutkay.jpg" />
     </div>
     <div
-      class="flex justify-center text-md text-white bg-green-600 py-4 uppercase mt-10"
+      class="flex justify-center text-center text-md text-white bg-green-600 py-4 uppercase mt-10"
     >
       <p>Book your ride today</p>
     </div>

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 // import { lightDarkMode } from "../store/WebStore.js"
 </script>
 <template>

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 // import { assets } from '../store/WebStore.ts'
 import { useWebStore } from "../store/WebStore.js";
 const webStore = useWebStore();

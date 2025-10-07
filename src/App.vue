@@ -6,7 +6,7 @@ import Footer from "./components/FooterSection.vue";
 
 <template>
   <Navbar />
-  <router-view class="mt-28" />
+  <router-view class="mt-30" />
   <Footer />
   <ChatNode />
 </template>

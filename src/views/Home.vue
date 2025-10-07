@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import AboutSection from '../components/AboutSection.vue'
 import ProductSection from '../components/ProductSection.vue'
 import ServiceSection from '../components/ServiceSection.vue'
