@@ -9,27 +9,23 @@ const webStore = useWebStore();
         Need Help?
         <span class="font-semibold"> Chat with us </span>
       </div>
-      <div
-        class="h-10 w-10 rounded-full bg-green-500 text-center"
-      >
-      <div v-on:click="webStore.showChatElement()">
-        <img
-          v-if="webStore.chatElement === false"
-          src="../assets/whatsapp.svg"
-          class="h-full w-full p-1 filter invert-90"
-        />
-      </div>
-      <div v-on:click="webStore.showChatElement()">
-         <p
-          v-if="webStore.chatElement === true"
-          
-          src="../assets/whatsapp.svg"
-          class="cursor-default text-2xl text-white hover:font-bold hover:text-gray-300"
-        >
-          x
-    </p>
-      </div>
-       
+      <div class="h-10 w-10 rounded-full bg-green-500 text-center">
+        <div v-on:click="webStore.showChatElement()">
+          <img
+            v-if="webStore.chatElement === false"
+            src="../assets/whatsapp.svg"
+            class="h-full w-full p-1 filter invert-90"
+          />
+        </div>
+        <div v-on:click="webStore.showChatElement()">
+          <p
+            v-if="webStore.chatElement === true"
+            src="../assets/whatsapp.svg"
+            class="cursor-default text-2xl text-white hover:font-bold hover:text-gray-300"
+          >
+            x
+          </p>
+        </div>
       </div>
     </div>
     <div
@@ -58,7 +54,9 @@ const webStore = useWebStore();
           <a
             class="flex justify-end items-center h-full w-full p- bg-gray-200"
             href="https://api.whatsapp.com/send?phone=2349080806095&text=Welcome%20to%20Kayson%20Classic%20Services."
-            ><img src="../assets/whatsapp.svg" class="h-20 w-auto filter invert-50"
+            ><img
+              src="../assets/whatsapp.svg"
+              class="h-20 w-auto filter invert-50"
           /></a>
         </div>
       </div>
