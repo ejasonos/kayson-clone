@@ -8,10 +8,10 @@ const webStore = useWebStore();
   <section class="fixed top-0 left-0 w-full bg-white z-10 shadow-lg">
     <nav class="flex items-center py-3 px-7 space-x-2 xl:pl-22">
       <div class="text-sm text-gray-400 gap-x-1 flex items-center">
-        <img src="../assets/phone.svg" class="h-3 w-3" />Call Us: 08034317041
+        <img src="/phone.svg" class="h-3 w-3" />Call Us: 08034317041
       </div>
       <div class="text-sm text-gray-400 gap-x-1 flex items-center">
-        <img src="../assets/message.svg" class="h-3 w-3" />info@kayson.com.ng
+        <img src="/message.svg" class="h-3 w-3" />info@kayson.com.ng
       </div>
     </nav>
     <header class="flex p-5 xl:px-0 justify-between xl:justify-around">
@@ -19,7 +19,7 @@ const webStore = useWebStore();
       <div 
           @click="webStore.showMobileMenu()">
         <img
-          src="../assets/bars.svg"
+          src="/bars.svg"
           class="h-10 w-auto bg-green-600 p-2 hover:bg-green-400 xl:hidden"
         />
       </div>

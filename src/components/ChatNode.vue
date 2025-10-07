@@ -13,14 +13,14 @@ const webStore = useWebStore();
         <div v-on:click="webStore.showChatElement()">
           <img
             v-if="webStore.chatElement === false"
-            src="../assets/whatsapp.svg"
+            src="/whatsapp.svg"
             class="h-full w-full p-1 filter invert-90"
           />
         </div>
         <div v-on:click="webStore.showChatElement()">
           <p
             v-if="webStore.chatElement === true"
-            src="../assets/whatsapp.svg"
+            src="/whatsapp.svg"
             class="cursor-default text-2xl text-white hover:font-bold hover:text-gray-300"
           >
             x
@@ -35,7 +35,7 @@ const webStore = useWebStore();
       <div
         class="w-[300px] bg-green-500 flex items-center space-x-1.5 p-3 rounded-tl-md rounded-tr-md"
       >
-        <img src="../assets/whatsapp.svg" class="h-10 w-10 filter invert-90" />
+        <img src="/whatsapp.svg" class="h-10 w-10 filter invert-90" />
         <div class="flex flex-col space-y-1.5">
           <p class="text-white text-md font-semibold">Start a Conversation</p>
           <p class="text-white text-sm font-normal">
@@ -55,7 +55,7 @@ const webStore = useWebStore();
             class="flex justify-end items-center h-full w-full p- bg-gray-200"
             href="https://api.whatsapp.com/send?phone=2349080806095&text=Welcome%20to%20Kayson%20Classic%20Services."
             ><img
-              src="../assets/whatsapp.svg"
+              src="/whatsapp.svg"
               class="h-20 w-auto filter invert-50"
           /></a>
         </div>
