@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// import { lightDarkMode } from "../store/WebStore.ts"
+// import { lightDarkMode } from "../store/WebStore.js"
 </script>
 <template>
     <section class="flex flex-col my-20">

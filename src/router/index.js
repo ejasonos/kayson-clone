@@ -7,7 +7,7 @@ import OurServices from '../views/OurServices.vue'
 import OurVehicles from '../views/OurVehicles.vue'
 import TruckVanHire from '../views/TruckVanHire.vue'
 
-export const router: Object = createRouter({
+export const router = createRouter({
     history: createWebHistory(),
     routes: [
         {path: '/', name: 'Home', component: Home},

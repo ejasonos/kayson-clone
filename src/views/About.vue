@@ -2,7 +2,7 @@
   <!-- Start building this page -->
   <section class="xl:px-20 pt-10">
     <div class="grid grid-cols-2">
-      <article>
+      <article id="tops">
         <div class="w-fit text-md font-semibold space-y-1">
           <p class="flex flex-col uppercase">ABOUT KAYSON CLASSIC</p>
           <div
@@ -83,7 +83,7 @@
           </p>
         </div>
       </article>
-      <img class="flex xl:ml-10 self-center" src="@/aboutKay.jpg" />
+      <img class="flex xl:ml-10 self-center" src="../assets/aboutkay.jpg" />
     </div>
     <div
       class="flex justify-center text-md text-white bg-green-600 py-4 uppercase mt-10"

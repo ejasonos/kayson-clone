@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // import { services } from "../store/WebStore.ts"
-import { useWebStore } from "../store/WebStore.ts";
+import { useWebStore } from "../store/WebStore.js";
 const webStore = useWebStore();
 </script>
 <template>

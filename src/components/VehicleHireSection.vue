@@ -25,7 +25,7 @@
           </div>
           <img
             class="h-5 w-5 mt-1 block filter invert-65"
-            src="@/briefcase.svg"
+            src="../assets/briefcase.svg"
           />
         </li>
         <li class="flex space-x-4">
@@ -43,7 +43,7 @@
           </div>
           <img
             class="h-5 w-5 mt-1 block filter invert-65 transform -rotate-z-50"
-            src="@/plane.svg"
+            src="../assets/plane.svg"
           />
         </li>
         <li class="flex space-x-4">
@@ -59,12 +59,12 @@
               schools.
             </p>
           </div>
-          <img class="h-5 w-5 mt-1 block filter invert-65" src="@/person.svg" />
+          <img class="h-5 w-5 mt-1 block filter invert-65" src="../assets/person.svg" />
         </li>
       </ul>
       <ul class="w-3/5 flex flex-col items-start space-y-7">
         <li class="flex space-x-4">
-          <img class="h-5 w-5 mt-1 block filter invert-65" src="@/gift.svg" />
+          <img class="h-5 w-5 mt-1 block filter invert-65" src="../assets/gift.svg" />
           <div>
             <p
               class="text-md font-semibold text-black flex items-center gap-x-2"
@@ -81,7 +81,7 @@
         <li class="flex space-x-4">
           <img
             class="h-5 w-5 mt-1 block filter invert-65 transform rotate-z-90"
-            src="@/h.svg"
+            src="../assets/h.svg"
           />
           <div>
             <p
@@ -100,7 +100,7 @@
         <li class="flex space-x-4">
           <img
             class="h-5 w-5 mt-1 block filter invert-65"
-            src="@/car-alt.svg"
+            src="../assets/car-alt.svg"
           />
           <div>
             <p
