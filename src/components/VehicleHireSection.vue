@@ -12,7 +12,7 @@ const webStore = useWebStore()
         class="h-1 w-1/2 border border-green-600 bg-green-600 rounded-full"
       ></div>
     </div>
-    <div class="flex flex-col lg:flex-row  gap-x-10 p-10 xl:mx-40">
+    <div class="flex flex-col lg:flex-row  gap-10 p-10 xl:mx-40">
       <ul class="lg:w-3/5 flex flex-col space-y-7">
         <li v-for="service in webStore.vehicleServicesA" :key="service.title" class="flex space-x-4">
           <div>
