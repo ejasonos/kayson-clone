@@ -82,7 +82,7 @@
           </p>
         </div>
       </article>
-      <img class="flex lg:w-[100vw] xl:ml-10 self-start" src="/aboutkay.jpg" />
+      <img class="flex h-auto w-[100vw] lg:w-auto xl:ml-10 self-start" src="/aboutkay.jpg" />
     </div>
     <div
       class="flex justify-center text-center text-md text-white bg-green-600 py-4 uppercase mt-10"
