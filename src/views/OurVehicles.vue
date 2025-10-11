@@ -73,7 +73,7 @@ let moreinfosaloon2 = ref(false);
               </article>
               <div
                 v-if="moreinfobus1 === true"
-                class="grid grid-cols-3 justify-center items-center p-1 space-y-1 bg-gray-300"
+                class="grid grid-cols-3 w-fit justify-center items-center p-1 space-y-1 bg-gray-300"
               >
                 <img src="/hy-1.jpg" class="h-20 w-20" alt="car interior" />
                 <img src="/hy-2.jpg" class="h-20 w-20" alt="car interior" />
@@ -121,7 +121,7 @@ let moreinfosaloon2 = ref(false);
               </article>
               <div
                 v-if="moreinfobus2 === true"
-                class="grid grid-cols-3 justify-center items-center p-1 space-y-1 bg-gray-300"
+                class="grid grid-cols-3 w-fit justify-center items-center p-1 space-y-1 bg-gray-300"
               >
                 <img src="/hy-1.jpg" class="h-20 w-20" alt="car interior" />
                 <img src="/hy-2.jpg" class="h-20 w-20" alt="car interior" />
@@ -169,7 +169,7 @@ let moreinfosaloon2 = ref(false);
               </article>
               <div
                 v-if="moreinfobus3 === true"
-                class="grid grid-cols-3 justify-center items-center p-1 space-y-1 bg-gray-300"
+                class="grid grid-cols-3 w-fit justify-center items-center p-1 space-y-1 bg-gray-300"
               >
                 <img src="/hy-1.jpg" class="h-20 w-20" alt="car interior" />
                 <img src="/hy-2.jpg" class="h-20 w-20" alt="car interior" />
@@ -217,7 +217,7 @@ let moreinfosaloon2 = ref(false);
               </article>
               <div
                 v-if="moreinfobus4 === true"
-                class="grid grid-cols-3 justify-center items-center p-1 space-y-1 bg-gray-300"
+                class="grid grid-cols-3 w-fit justify-center items-center p-1 space-y-1 bg-gray-300"
               >
                 <img src="/hy-1.jpg" class="h-20 w-20" alt="car interior" />
                 <img src="/hy-2.jpg" class="h-20 w-20" alt="car interior" />
@@ -265,7 +265,7 @@ let moreinfosaloon2 = ref(false);
               </article>
               <div
                 v-if="moreinfobus5 === true"
-                class="grid grid-cols-3 justify-center items-center p-1 space-y-1 bg-gray-300"
+                class="grid grid-cols-3 w-fit justify-center items-center p-1 space-y-1 bg-gray-300"
               >
                 <img src="/hy-1.jpg" class="h-20 w-20" alt="car interior" />
                 <img src="/hy-2.jpg" class="h-20 w-20" alt="car interior" />
@@ -331,7 +331,7 @@ let moreinfosaloon2 = ref(false);
               </article>
               <div
                 v-if="moreinfosuv1 === true"
-                class="grid grid-cols-3 justify-center items-center p-1 space-y-1 bg-gray-300"
+                class="grid grid-cols-3 w-fit justify-center items-center p-1 space-y-1 bg-gray-300"
               >
                 <img src="/hy-1.jpg" class="h-20 w-20" alt="car interior" />
                 <img src="/hy-2.jpg" class="h-20 w-20" alt="car interior" />
@@ -379,7 +379,7 @@ let moreinfosaloon2 = ref(false);
               </article>
               <div
                 v-if="moreinfosuv2 === true"
-                class="grid grid-cols-3 justify-center items-center p-1 space-y-1 bg-gray-300"
+                class="grid grid-cols-3 w-fit justify-center items-center p-1 space-y-1 bg-gray-300"
               >
                 <img src="/hy-1.jpg" class="h-20 w-20" alt="car interior" />
                 <img src="/hy-2.jpg" class="h-20 w-20" alt="car interior" />
@@ -427,7 +427,7 @@ let moreinfosaloon2 = ref(false);
               </article>
               <div
                 v-if="moreinfosuv3 === true"
-                class="grid grid-cols-3 justify-center items-center p-1 space-y-1 bg-gray-300"
+                class="grid grid-cols-3 w-fit justify-center items-center p-1 space-y-1 bg-gray-300"
               >
                 <img src="/hy-1.jpg" class="h-20 w-20" alt="car interior" />
                 <img src="/hy-2.jpg" class="h-20 w-20" alt="car interior" />
@@ -494,7 +494,7 @@ let moreinfosaloon2 = ref(false);
               </article>
               <div
                 v-if="moreinfosaloon1 === true"
-                class="grid grid-cols-3 justify-center items-center p-1 space-y-1 bg-gray-300"
+                class="grid grid-cols-3 w-fit justify-center items-center p-1 space-y-1 bg-gray-300"
               >
                 <img src="/hy-1.jpg" class="h-20 w-20" alt="car interior" />
                 <img src="/hy-2.jpg" class="h-20 w-20" alt="car interior" />
@@ -542,7 +542,7 @@ let moreinfosaloon2 = ref(false);
               </article>
               <div
                 v-if="moreinfosaloon2 === true"
-                class="grid grid-cols-3 justify-center items-center p-1 space-y-1 bg-gray-300"
+                class="grid grid-cols-3 w-fit justify-center items-center p-1 space-y-1 bg-gray-300"
               >
                 <img src="/hy-1.jpg" class="h-20 w-20" alt="car interior" />
                 <img src="/hy-2.jpg" class="h-20 w-20" alt="car interior" />

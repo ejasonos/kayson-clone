@@ -64,54 +64,54 @@ let mobileMenu = ref(false)
       </nav>
       <nav
         v-if="mobileMenu === true"
-        class="bg-white absolute right-0 flex flex-col w-[60%] z-10 rounded-2xl rounded-t-none pr-5 overflow-hidden"
+        class="bg-white absolute right-0 flex flex-col w-[60%] z-10 rounded-lg rounded-t-none pr-5 overflow-hidden"
       >
         <!-- Mobile screen menu setting-->
         <div
           v-on:click="mobileMenu === true ? mobileMenu = false : mobileMenu = true"
-          class="self-end text-xl text-white py-0 px-3.5 bg-green-600 border-2 border-gray-400 w-fit h-fit hover:bg-green-200 hover:text-gray-800 cursor-default mb-1"
+          class="self-end text-xl text-white py-0 px-3.5 bg-green-600 border-[1px] border-gray-400 w-fit h-fit hover:bg-green-200 hover:text-gray-800 cursor-default mb-1"
         >
           x
         </div>
         <RouterLink
           v-bind:to="{ name: 'Home' }"
-          class="text-lg xl:text-xl text-gray-400 font-semibold px-3 py-1.5 border-2 border-b-0 border-gray-400 hover:bg-green-600 hover:text-white uppercase rounded-t-2xl"
+          class="text-lg xl:text-xl text-gray-400 font-semibold px-3 py-1.5 border-[1px] border-b-0 border-gray-400 hover:bg-green-600 hover:text-white uppercase rounded-t-lg"
         >
           Home</RouterLink
         >
         <RouterLink
           v-bind:to="{ name: 'About' }"
-          class="text-lg xl:text-xl text-gray-400 font-semibold p-3 py-1.5 border-2 border-b-0 border-gray-400 hover:bg-green-600 hover:text-white uppercase"
+          class="text-lg xl:text-xl text-gray-400 font-semibold p-3 py-1.5 border-[1px] border-b-0 border-gray-400 hover:bg-green-600 hover:text-white uppercase"
         >
           About Us</RouterLink
         >
         <RouterLink
           v-bind:to="{ name: 'Services' }"
-          class="text-lg xl:text-xl text-gray-400 font-semibold p-3 py-1.5 border-2 border-b-0 border-gray-400 hover:bg-green-600 hover:text-white uppercase"
+          class="text-lg xl:text-xl text-gray-400 font-semibold p-3 py-1.5 border-[1px] border-b-0 border-gray-400 hover:bg-green-600 hover:text-white uppercase"
         >
           Our Services</RouterLink
         >
         <RouterLink
           v-bind:to="{ name: 'Hire' }"
-          class="text-lg xl:text-xl text-gray-400 font-semibold p-3 py-1.5 border-2 border-b-0 border-gray-400 hover:bg-green-600 hover:text-white uppercase"
+          class="text-lg xl:text-xl text-gray-400 font-semibold p-3 py-1.5 border-[1px] border-b-0 border-gray-400 hover:bg-green-600 hover:text-white uppercase"
         >
           Truck & Van Hire</RouterLink
         >
         <RouterLink
           v-bind:to="{ name: 'Vehicles' }"
-          class="text-lg xl:text-xl text-gray-400 font-semibold p-3 py-1.5 border-2 border-b-0 border-gray-400 hover:bg-green-600 hover:text-white uppercase"
+          class="text-lg xl:text-xl text-gray-400 font-semibold p-3 py-1.5 border-[1px] border-b-0 border-gray-400 hover:bg-green-600 hover:text-white uppercase"
         >
           Our Vehicles</RouterLink
         >
         <RouterLink
           v-bind:to="{ name: 'Booking' }"
-          class="text-lg xl:text-xl text-gray-400 font-semibold p-3 py-1.5 border-2 border-b-0 border-gray-400 hover:bg-green-600 hover:text-white uppercase"
+          class="text-lg xl:text-xl text-gray-400 font-semibold p-3 py-1.5 border-[1px] border-b-0 border-gray-400 hover:bg-green-600 hover:text-white uppercase"
         >
           Make A Booking</RouterLink
         >
         <RouterLink
           v-bind:to="{ name: 'Contact' }"
-          class="text-lg xl:text-xl text-gray-400 font-semibold p-3 py-1.5 border-2 border-gray-400 hover:bg-green-600 hover:text-white uppercase rounded-b-2xl"
+          class="text-lg xl:text-xl text-gray-400 font-semibold p-3 py-1.5 border-[1px] border-gray-400 hover:bg-green-600 hover:text-white uppercase rounded-b-lg"
         >
           Contact Us</RouterLink
         >
