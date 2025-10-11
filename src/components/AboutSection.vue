@@ -2,9 +2,9 @@
 // import { lightDarkMode } from "../store/WebStore.js"
 </script>
 <template>
-    <section class="flex flex-col my-20">
+    <section class="flex flex-col my-18 p-5 lg:p-10">
         <div class="flex flex-col justify-center items-center gap-y-5">
-            <div class="text-2xl xl:text-3xl font-bold text-black text-center uppercase space-y-4 flex flex-col justify-center items-center">
+            <div class="text-xl lg:text-2xl xl:text-3xl font-bold text-black text-center uppercase space-y-4 flex flex-col justify-center items-center">
                 <p>INTRODUCING <span class="text-green-600">KAYSON CLASSIC SERVICES<span class="text-black">,</span> YOUR COMPLETE</span> BUS HIRE SOLUTION</p>
                 <div class="h-1 w-50 border border-green-600 bg-green-600 rounded-full"></div>
             </div>
