@@ -11,13 +11,15 @@ const webStore = useWebStore();
 </script>
 <template>
   <section class="relative flex flex-col space-y-10 p-10 bg-gray-200 w-[100%]">
-    <div
-      class="w-fit flex flex-col justify-center items-center gap-y-2 self-center"
-    >
-      <p class="text-lg text-black text-center font-bold uppercase">What are people saying about us</p>
-      <div
-        class="h-1 w-1/2 border border-green-600 bg-green-600 rounded-full"
-      ></div>
+    <div class="flex justify-center">
+      <div class="w-fit flex flex-col justify-center items-center gap-y-2">
+        <p class="text-lg text-black text-center font-bold uppercase">
+          What are people saying about us
+        </p>
+        <div
+          class="h-1 w-1/2 border border-green-600 bg-green-600 rounded-full"
+        ></div>
+      </div>
     </div>
 
     <div class="flex">
