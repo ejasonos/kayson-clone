@@ -18,7 +18,7 @@ let moreinfosaloon1 = ref(false);
 let moreinfosaloon2 = ref(false);
 </script>
 <template>
-  <section class="flex flex-col p-10 xl:px-20">
+  <section class="flex flex-col p-5 lg:p-10 xl:px-20">
     <div id="tops" class="grid lg:grid-cols-3 gap-y-5">
       <ul class="flex flex-col">
         <li class="flex flex-col space-y-2 w-full justify-center">

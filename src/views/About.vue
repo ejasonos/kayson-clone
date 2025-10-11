@@ -1,5 +1,5 @@
 <template>
-  <section class="xl:px-20 p-10">
+  <section class="xl:px-20 p-5 lg:p-10">
     <div class="flex flex-col lg:grid lg:grid-cols-2">
       <article id="tops">
         <div class="w-fit text-md font-semibold space-y-1">

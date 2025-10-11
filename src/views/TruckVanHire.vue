@@ -1,6 +1,6 @@
 <template>
     <!-- id="tops" -->
-  <section class="flex flex-col space-y-10 px-10 xl:px-20">
+  <section class="flex flex-col space-y-10 p-5 lg:p-10 xl:px-20">
     <div id="tops" class="h-[400px] w-[100%] flex justify-center items-center">
       <img src="/Snip20191021_3-1024x453.png" class="w-full h-full" />
     </div>

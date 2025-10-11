@@ -1,6 +1,6 @@
 <template>
   <!-- id="tops"-->
-  <section class="flex flex-col p-10 xl:px-20">
+  <section class="flex flex-col p-5 lg:p-10 xl:px-20">
     <div class="flex flex-col space-y-3">
       <p class="text-3xl text-black font-semibold">BOOK A VEHICLE</p>
       <P class="text-sm text-gray-800/50"
