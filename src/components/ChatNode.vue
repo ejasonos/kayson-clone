@@ -9,18 +9,16 @@ const webStore = useWebStore();
         Need Help?
         <span class="font-semibold"> Chat with us </span>
       </div>
-      <div class="flex h-10 w-10 rounded-full bg-green-500 text-center">
-        <div v-on:click="webStore.showChatElement()">
+      <div class="flex justify-center items-center h-10 w-10 rounded-full bg-green-500 text-center">
+        <div v-if="webStore.chatElement === false" v-on:click="webStore.showChatElement()" class="w-fit">
           <img
-            v-if="webStore.chatElement === false"
             src="/whatsapp.svg"
             class="h-full w-full p-1 filter invert-90"
           />
         </div>
-        <div v-on:click="webStore.showChatElement()" class="flex justify-center items-center cursor-default">
+        <div v-if="webStore.chatElement === true" v-on:click="webStore.showChatElement()" class="w-fit flex items-center">
           <p
-            v-if="webStore.chatElement === true"
-            class="text-2xl text-white hover:font-bold hover:text-gray-300"
+            class="text-2xl text-white uppercase hover:font-bold hover:text-gray-300"
           >
             x
           </p>
