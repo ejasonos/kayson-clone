@@ -1,48 +1,68 @@
 <script setup>
-// import { services } from "../store/WebStore.ts"
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+
+import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+
 import { useWebStore } from "../store/WebStore.js";
 const webStore = useWebStore();
 </script>
 <template>
-  <section id="tops" class="relative bg-gray-200 py-20 xl:p-20">
-    <div class="flex items-center h-[500px]">
-      <div
-        class="border mx-4 h-fit w-1/12 flex justify-center items-center bg-gray-600 text-white hover:bg-gray-400 hover:text-white hover:font-semibold cursor-default"
-      >
-        <
-      </div>
-      <ul class="flex w-10/12 h-fit overflow-hidden">
-        <li
-          v-for="s in webStore.services"
-          v-bind:key="s.title" v-bind:id="s.id"
-          class="relative flex justify-center items-center h-[500px] w-full flex-shrink-0"
-        >
-          <img v-bind:src="s.image" class="h-full w-full sobject-cover" />
+  <section id="tops" class="relative bg-gray-200 xl:px-20">
+    <div class="flex items-center h-fit">
+        <Swiper 
+      :modules="[Autoplay, Pagination, Navigation]"
+      :spaceBetween="30"
+      :loop="true"
+      :autoplay="{ delay: 2000, disableOnInteraction: false }"
+      pagination
+      navigation
+      class="overflow-hidden">
+        <SwiperSlide>
+          <img v-bind:src="webStore.services[0].image" class="h-[450px] w-full sobject-cover" />
           <div
             class="absolute bottom-0 mb-4 flex flex-col space-y-3 justify-center items-center"
           >
             <p class="text-green-700 text-2xl xl:text-4xl font-bold uppercase bg-white p-2">
-              {{ s.title }}
+              {{ webStore.services[0].title }}
             </p>
             <span
               class="bg-green-700 text-2xl xl:text-4xl rounded shadow-lg px-4 py-2 text-white font-bold uppercase hover:transition-all hover:scale-105"
-              >{{ s.button }}</span
+              >{{ webStore.services[0].button }}</span
             >
           </div>
-        </li>
-      </ul>
-      <div
-        class="border mx-4 w-1/12 h-fit flex justify-center items-center bg-gray-600 text-white hover:bg-gray-400 hover:font-semibold cursor-default">
-        >
-      </div>
-
-      <!-- The three circles indicating the service being displayed -->
-      <div class="absolute bottom-10 left-0 flex w-full justify-center items-center space-x-2">
-          <a v-for="sto in webStore.services" :key="sto.title"
-            v-bind:href="'#'+sto.id"
-            class="h-3 w-3 rounded-full border-2 border-gray-400 bg-white focus:bg-gray-400"
-          ></a>
-      </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <img v-bind:src="webStore.services[1].image" class="h-[450px] w-full sobject-cover" />
+          <div
+            class="absolute bottom-0 mb-4 flex flex-col space-y-3 justify-center items-center"
+          >
+            <p class="text-green-700 text-2xl xl:text-4xl font-bold uppercase bg-white p-2">
+              {{ webStore.services[1].title }}
+            </p>
+            <span
+              class="bg-green-700 text-2xl xl:text-4xl rounded shadow-lg px-4 py-2 text-white font-bold uppercase hover:transition-all hover:scale-105"
+              >{{ webStore.services[1].button }}</span
+            >
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <img v-bind:src="webStore.services[2].image" class="h-[450px] w-full sobject-cover" />
+          <div
+            class="absolute bottom-0 mb-4 flex flex-col space-y-3 justify-center items-center"
+          >
+            <p class="text-green-700 text-2xl xl:text-4xl font-bold uppercase bg-white p-2">
+              {{ webStore.services[2].title }}
+            </p>
+            <span
+              class="bg-green-700 text-2xl xl:text-4xl rounded shadow-lg px-4 py-2 text-white font-bold uppercase hover:transition-all hover:scale-105"
+              >{{ webStore.services[2].button }}</span
+            >
+          </div>
+        </SwiperSlide>
+      </Swiper>
     </div>
   </section>
 </template>
