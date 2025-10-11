@@ -12,7 +12,7 @@ const webStore = useWebStore();
 <template>
   <section class="relative flex flex-col space-y-10 p-10 bg-gray-200 w-[100%]">
     <div
-      class="text-lg text-black font-bold uppercase self-center w-fit flex flex-col justify-center items-center gap-y-2"
+      class="text-lg text-black text-center font-bold uppercase self-center w-fit flex flex-col justify-center items-center gap-y-2"
     >
       What people are saying about us
       <div
