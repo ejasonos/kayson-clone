@@ -1,6 +1,6 @@
 <template>
   <section class="xl:px-20 pt-10">
-    <div class="grid grid-cols-2">
+    <div class="flex flex-col lg:grid lg:grid-cols-2">
       <article id="tops">
         <div class="w-fit text-md font-semibold space-y-1">
           <p class="flex flex-col uppercase">ABOUT KAYSON CLASSIC</p>

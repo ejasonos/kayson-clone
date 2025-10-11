@@ -5,7 +5,7 @@ const webStore = useWebStore();
 <template>
   <section class="flex flex-col xl:p-20 bg-gray-200">
         <ul id="tops"
-      class="flex flex-wrap items-center justify-around py-10 gap-y-10 xl:grid xl:grid-cols-3"
+      class="flex flex-wrap items-center justify-around py-13 gap-y-10 xl:grid xl:grid-cols-3"
     >
       <li
         v-for="service in webStore.vehicleServicesA"

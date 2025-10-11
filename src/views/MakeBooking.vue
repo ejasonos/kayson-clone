@@ -7,8 +7,8 @@
         >Please fill in the booking form below and we will get back to you</P
       >
     </div>
-    <form class="flex flex-col mt-7 w-full">
-      <div class="flex space-x-10 space-y-10">
+    <form class="flex flex-col mt-7 w-full space-y-5">
+      <div class="flex flex-col lg:flex-row space-x-10 space-y-10">
         <div class="flex flex-col space-y-1.5 w-1/2">
           <label for="firstname" class="text-green-600 text-sm font-bold"
             >Your First Name</label

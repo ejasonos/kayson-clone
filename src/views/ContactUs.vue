@@ -8,7 +8,7 @@ let message = ref("");
 </script>
 <template>
   <section class="flex flex-col p-10 xl:px-20 xl:flex-row xl:space-x-10">
-    <div class="flex flex-col space-y-3 w-1/4">
+    <div class="flex flex-col space-y-3 xl:w-1/4">
       <div class="flex flex-col space-y-3">
         <div class="w-fit flex flex-col space-y-3 mb-5">
           <p class="text-black text-md font-bold uppercase">Keep in touch</p>

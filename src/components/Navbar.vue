@@ -8,10 +8,10 @@ let mobileMenu = ref(false)
 <template>
   <section class="fixed top-0 left-0 w-full bg-white z-10 shadow-lg">
     <nav class="flex items-center py-3 px-7 space-x-2 xl:pl-22">
-      <div class="text-sm text-gray-400 gap-x-1 flex items-center">
+      <div class="text-xs text-gray-400 gap-x-1 flex items-center">
         <img src="/phone.svg" class="h-3 w-3" />Call Us: 08034317041
       </div>
-      <div class="text-sm text-gray-400 gap-x-1 flex items-center">
+      <div class="text-xs text-gray-400 gap-x-1 flex items-center">
         <img src="/message.svg" class="h-3 w-3" />info@kayson.com.ng
       </div>
     </nav>

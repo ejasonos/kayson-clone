@@ -19,7 +19,7 @@ let moreinfosaloon2 = ref(false);
 </script>
 <template>
   <section class="flex flex-col p-10 xl:px-20">
-    <div id="tops" class="grid grid-cols-3">
+    <div id="tops" class="grid lg:grid-cols-3">
       <ul class="flex flex-col">
         <li class="flex flex-col space-y-2 w-full justify-center">
           <div class="h-[120px] w-full flex justify-center items-center">
