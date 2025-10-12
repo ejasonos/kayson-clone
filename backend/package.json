@@ -1,0 +1,26 @@
+{
+  "name": "kayson-clone-backend",
+  "version": "1.0.0",
+  "description": "The logic of the kayson-clone frontend",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "server": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "backend"
+  ],
+  "author": "Favour Ejakpevweoghene <favejakp@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.1",
+    "nodemon": "^3.1.10"
+  },
+  "devDependencies": {}
+}
