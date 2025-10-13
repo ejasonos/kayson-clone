@@ -11,7 +11,7 @@ let message = ref("");
 
 const router = useRouter()
 
-const contactus = async (req, res)=>{
+const contactus = async ()=>{
   try {
     const res = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}/contact`, {
       method: "POST",
@@ -25,30 +25,18 @@ const contactus = async (req, res)=>{
     })
 
     if (!res.ok) {
-      const notifyFailure = ()=>{
-      toast("Submitted Failed!", {
+      toast("Submission Failed!", {
         autoClose: 3000
       })
-    }
-
-    router.push('/')
-    
-    notifySuccess()
       res.status(500).json({message: "Server error"})
       return
     }
-
-    const data = await res.json()
-    console.log("Successful "+data)
-
-    const notifySuccess = ()=>{
-      toast("Submitted request successfully. We will respond shortly!", {
-        autoClose: 3000
-      })
-    }
-    notifySuccess()
+    toast("Submitted request successfully. We will respond shortly!", {
+      autoClose: 3000
+    })
+    router.push('/')
   } catch (err) {
-    console.error("Error: "+err)
+    console.error('Failed to Send form')
   }
 }
 </script>
