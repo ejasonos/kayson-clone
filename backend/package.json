@@ -2,15 +2,13 @@
   "name": "kayson-clone-backend",
   "version": "1.0.0",
   "description": "The logic of the kayson-clone frontend",
-  "main": "server.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "server": "node server.js",
-    "build": "node server.js"
+    "start": "node index.js"
   },
   "keywords": [
-    "nodejs",
-    "backend"
+    "nodejs"
   ],
   "author": "Favour Ejakpevweoghene <favejakp@gmail.com>",
   "license": "ISC",
@@ -19,9 +17,5 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "mongoose": "^8.19.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.10",
-    "cors": "^2.8.5"
   }
 }
