@@ -33,25 +33,19 @@ const bookvehicle = async () => {
     });
 
     if (!res.ok) {
-      const errBody = await res.json().catch(() => ({}));
+      const errBody = await res.status(500).json().catch(() => ({}));
       console.error("Response error", errBody);
       return;
     }
-
-    const data = await res.json();
-    console.log(data);
-
-    const notifySuccess = () => {
-      toast("Booking successfull, we'll get back to you shortly!", {
+    
+    toast("Booking successfull, we'll get back to you shortly!", {
         autoClose: 3500,
       });
-    };
-    notifySuccess();
 
     // redirect to home page
     router.push("/");
   } catch (err) {
-    console.error("Error: " + err);
+    console.error("Failed to get server" + err);
   }
 };
 </script>
