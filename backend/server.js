@@ -2,18 +2,18 @@ import express from 'express'
 import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
-import cors from 'cors'
+// import cors from 'cors'
 
 
 const app = express()
-dotenv.config({ path: './.env' })
+dotenv.config()
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT
 
 const connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URL)
-    console.log('Mongodb connected')
+    // console.log('Mongodb connected')
   } catch (err) {
     console.error('Error: ' + err)
   }
@@ -21,7 +21,7 @@ const connect = async () => {
 
 const router = express.Router()
 /******** This code helps to resolve route issues from backend to frontend *******/
-const allowedOrigins = [process.env.BACKEND_URL || 'http://localhost:3000', process.env.FRONTEND_URL || 'http://localhost:5173'];
+/* const allowedOrigins = [process.env.BACKEND_URL || 'http://localhost:3000', process.env.FRONTEND_URL || 'http://localhost:5173'];
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -34,23 +34,26 @@ const corsOptions = {
 };
 
 //middleware
-// app.use(cors());
 app.use(cors(corsOptions));
+*/
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(router)
 
-router.all('/', (req, res) => {
+/* router.all('/', (req, res) => {
   res.json('Kayson Home Server page')
 })
+*/
 
 import booking from './bookingModel.js'
 import Contact from './contactModel.js'
 
-router.get('/bookvehicle', (req, res) => {
+/* router.get('/bookvehicle', (req, res) => {
   res.json("Book vehicle server is up")
 })
+*/
+
 router.post('/bookvehicle', async (req, res) => {
   try {
 
@@ -75,18 +78,7 @@ router.post('/bookvehicle', async (req, res) => {
     await newBooking.save()
 
     res.status(201).json({
-      message: "User registered successfully",
-      // token
-      user: {
-        firstname: firstname, 
-        surname: surname, 
-        phone: phone,
-        email: email, 
-        pickuplocation: pickuplocation, 
-        pickupdate: pickupdate, 
-        time: time, 
-        preference: preference
-      }
+      message: "User registered successfully"
     });
 
   } catch (err) {
@@ -100,7 +92,7 @@ router.post('/contact', async (req, res)=>{
 
   if (!name || !email || !subject || !message) {
     res.status(401).json({
-      message: "You have not filled the form "
+      message: "You have not filled the form"
     })
     return
   }
@@ -119,6 +111,6 @@ router.post('/contact', async (req, res)=>{
 })
 
 connect().then(() => {
-  console.log('Mongodb connected')
-  app.listen(PORT, () => { console.log('Server up and running on port ' + PORT) })
+  // console.log('Mongodb connected')
+  app.listen(PORT)
 })
