@@ -11,9 +11,9 @@ let message = ref("");
 
 const router = useRouter()
 
-const contactus = async ()=>{
+const contactus = async (req, res)=>{
   try {
-    const res = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}/contact`, {
+    const res = await fetch(`https://kayson-clone-backend.vercel.app/contact`, {
       method: "POST",
       headers: {"Content-Type":"application/json"},
       body: JSON.stringify({
