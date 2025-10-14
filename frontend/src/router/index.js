@@ -6,6 +6,8 @@ import MakeBooking from '../views/MakeBooking.vue'
 import OurServices from '../views/OurServices.vue'
 import OurVehicles from '../views/OurVehicles.vue'
 import TruckVanHire from '../views/TruckVanHire.vue'
+// admin page
+import AdminPage from '../views/Admin.vue'
 
 export const router = createRouter({
     history: createWebHistory(),
@@ -16,7 +18,8 @@ export const router = createRouter({
         {path: '/booking', name: 'Booking', component: MakeBooking, meta: {title: 'Book your Vehicles in Lagos with Kayson Classic Services'}},
         {path: '/services', name: 'Services', component: OurServices, meta: {title: 'Corporate Transportation, School Transportation and more | Kayson Classic'}},
         {path: '/vehicles', name: 'Vehicles', component: OurVehicles, meta: {title: 'Buses, SUVs, Saloon cars for Hire in Lagos from Kayson Classic'}},
-        {path: '/hire', name: 'Hire', component: TruckVanHire, meta: {title: 'Truck & Vah for Hire in Lagos, Nigeria from Kayson Classic Services'}}
+        {path: '/hire', name: 'Hire', component: TruckVanHire, meta: {title: 'Truck & Vah for Hire in Lagos, Nigeria from Kayson Classic Services'}},
+        {path: '/admin', name: 'Admin', component: AdminPage, meta: { title: 'The Admin Page'}}
     ]
 })
 

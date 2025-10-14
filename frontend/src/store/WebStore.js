@@ -7,6 +7,7 @@ export const useWebStore = defineStore('items', {
         logo: '/logo-2.png',
         brand: 'Kayson Classic Services',
         developer: 'UBS Digital',
+        users: [],
         // Home Page
         services: [
             { id: 'service1', image: '/istockphoto-1303182383-612x612-removebg-preview.png', title: 'Kayson Classic', button: 'Bus Hire Service' },
@@ -67,6 +68,27 @@ export const useWebStore = defineStore('items', {
                 state.chatElement = true
             } else if (state.chatElement === true) {
                 state.chatElement = false
+            }
+        }
+    },
+    actions: {
+        // State functions go in here
+        async fetchUsers() {
+            try {
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}/complaint`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+                if (!res.ok) throw new Error(`Fetch failed: ${res.status}`)
+                const data = await res.json()
+                this.users = Array.isArray(data) ? data : []
+                return this.users
+            } catch (err) {
+                console.error("fetchUsers error: ", err)
+                this.users = []
+                return []
             }
         }
     }
