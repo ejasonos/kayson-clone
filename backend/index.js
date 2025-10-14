@@ -2,7 +2,7 @@ import express from 'express'
 import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
-// import cors from 'cors'
+import cors from 'cors'
 
 
 const app = express()
@@ -21,7 +21,7 @@ const connect = async () => {
 
 const router = express.Router()
 /******** This code helps to resolve route issues from backend to frontend *******/
-/* const allowedOrigins = [process.env.BACKEND_URL || 'http://localhost:3000', process.env.FRONTEND_URL || 'http://localhost:5173'];
+const allowedOrigins = [process.env.BACKEND_URL, process.env.FRONTEND_URL];
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -35,7 +35,7 @@ const corsOptions = {
 
 //middleware
 app.use(cors(corsOptions));
-*/
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
@@ -48,11 +48,6 @@ router.all('/', (req, res) => {
 
 import booking from './bookingModel.js'
 import Contact from './contactModel.js'
-
-/* router.get('/bookvehicle', (req, res) => {
-  res.json("Book vehicle server is up")
-})
-*/
 
 router.post('/bookvehicle', async (req, res) => {
   try {
