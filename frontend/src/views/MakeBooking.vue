@@ -15,9 +15,9 @@ let pickupdate = ref("");
 let time = ref("");
 let preference = ref("");
 
-const bookvehicle = async () => {
+const bookvehicle = async (req, res) => {
   try {
-    const res = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}/bookvehicle`, {
+    const res = await fetch(`https://kayson-clone-backend.vercel.app/bookvehicle`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
