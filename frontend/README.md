@@ -1,5 +1,3 @@
-<!-- Profile Banner -->
-<h1>In order to update deployment (CD) then run npm build on the IDE before pushing to vercel</h1>
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com/?lines=Hi+there!+I'm+Favour+Ejakpevweoghene+Onosemuode%2C+a+Full+Stack+Dev;Vue.js+%7C+React.js+%7C+Tailwind+CSS+%7C+Node.js+%7C+MongoDB;&center=true&width=750&height=45&color=38BDF8&pause=1000" alt="Typing SVG" />
 </p>
