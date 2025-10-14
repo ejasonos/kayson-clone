@@ -41,10 +41,10 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(router)
 
-/* router.all('/', (req, res) => {
+router.all('/', (req, res) => {
   res.json('Kayson Home Server page')
 })
-*/
+
 
 import booking from './bookingModel.js'
 import Contact from './contactModel.js'
