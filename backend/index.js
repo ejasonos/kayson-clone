@@ -18,10 +18,7 @@ async function connectDBAndStartServer() {
   }
 
   try {
-    await mongoose.connect(mongoUri, {
-      // Recommended options can be added here if needed
-      // useNewUrlParser and useUnifiedTopology are defaults in newer mongoose
-    });
+    await mongoose.connect(mongoUri);
     console.log('MongoDB connected (mongoose)');
 
     // Ensure collections exist using native MongoDB driver (safe even if you mix clients)
@@ -94,13 +91,10 @@ router.post('/bookvehicle', async (req, res) => {
       preference: preference
     })
 
-    console.log(newBooking)
-
     await newBooking.save()
 
     res.status(201).json({
       message: "User registered successfully",
-      // token
       user: {
         firstname: firstname,
         surname: surname,
