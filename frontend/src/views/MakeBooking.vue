@@ -17,29 +17,38 @@ let preference = ref("");
 
 const bookvehicle = async () => {
   try {
-    const res = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL_LOCAL}/bookvehicle`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        firstname: firstname.value,
-        surname: surname.value,
-        phone: phone.value,
-        email: email.value,
-        pickuplocation: pickuplocation.value,
-        pickupdate: pickupdate.value,
-        time: time.value,
-        preference: preference.value,
-      }),
-    });
+    const res = await fetch(
+      `${import.meta.env.VITE_BACKEND_BASE_URL}/bookvehicle`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstname: firstname.value,
+          surname: surname.value,
+          phone: phone.value,
+          email: email.value,
+          pickuplocation: pickuplocation.value,
+          pickupdate: pickupdate.value,
+          time: time.value,
+          preference: preference.value,
+        }),
+      }
+    );
 
     if (!res.ok) {
-      const errBody = await res.json().catch(() => ({}));
+      const errBody = await res
+        .status(500)
+        .json()
+        .catch(() => ({}));
+      const notifyFailure = () => {
+        toast("Booking Failed!", {
+          autoClose: 3500,
+        });
+      };
+      notifyFailure();
       console.error("Response error", errBody);
       return;
     }
-
-    const data = await res.json();
-    console.log(data);
 
     const notifySuccess = () => {
       toast("Booking successfull, we'll get back to you shortly!", {
@@ -51,7 +60,7 @@ const bookvehicle = async () => {
     // redirect to home page
     router.push("/");
   } catch (err) {
-    console.error("Error: " + err);
+    console.error("Failed to get server" + err);
   }
 };
 </script>

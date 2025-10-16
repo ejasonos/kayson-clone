@@ -14,7 +14,7 @@ const router = useRouter();
 const contactus = async (req, res) => {
   try {
     const res = await fetch(
-      `${import.meta.env.VITE_BACKEND_BASE_URL_LOCAL}/contact`,
+      `${import.meta.env.VITE_BACKEND_BASE_URL}/contact`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

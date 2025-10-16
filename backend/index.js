@@ -2,14 +2,16 @@ import express from 'express'
 import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
 import { MongoClient, ServerApiVersion } from 'mongodb'
-// import mongoose from 'mongoose' // local deployments
-import cors from 'cors' // remove for production
+import mongoose from 'mongoose'
+import cors from 'cors'
 
 const app = express()
 dotenv.config()
 
+const uri = process.env.MONGO_URL
 
-const uri = "mongodb+srv://admin:0Ik91XSzxK800GMR@cluster0.j5o04ar.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+console.log(uri) // uri = "mongodb+srv://admin:0Ik91XSzxK800GMR@cluster0.j5o04ar.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -25,7 +27,10 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
     // Send a ping to confirm a successful connection
-    await client.db("kaysonclone").command({ ping: 1 });
+    const db = await client.db("kaysonclone").command({ ping: 1 });
+    // Tell mongoose to use the existing connection
+    mongoose.connection = client;
+    mongoose.connection.db = db;
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
     // Ensures that the client will close when you finish/error
@@ -38,15 +43,6 @@ app.listen(process.env.PORT ?? 3000, () => {
   console.log('Server running')
 })
 
-
-// const connect = async () => {
-//   try {
-//     await mongoose.connect(process.env.MONGO_URL)
-//     console.log('Mongodb connected')
-//   } catch (err) {
-//     console.error('Error: ' + err)
-//   }
-// }
 
 const router = express.Router()
 
@@ -149,13 +145,13 @@ router.post('/contact', async (req, res) => {
   })
 })
 
-router.get('/complaint', async (req, res) => {
-  try {
-    const issues = await Contact.find()
-    console.log('accessed from api ' + issues)
-    res.status(200).json(issues) // this returns the issues data to the frontend
-  } catch (err) {
-    console.error("Root handler error: ", err)
-    res.status(500).json({ message: "server error" })
-  }
-})
+// router.get('/complaint', async (req, res) => {
+//   try {
+//     const issues = await Contact.find()
+//     console.log('accessed from api ' + issues)
+//     res.status(200).json(issues) // this returns the issues data to the frontend
+//   } catch (err) {
+//     console.error("Root handler error: ", err)
+//     res.status(500).json({ message: "server error" })
+//   }
+// })
