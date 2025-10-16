@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const bookingSchema = mongoose.Schema({
+const bookingSchema = new mongoose.Schema({
     firstname: {type: String, required: true},
     surname: {type: String, required: true},
     phone: {type: String, required: true},

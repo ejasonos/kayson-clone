@@ -1,44 +1,42 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
-import { MongoClient, ServerApiVersion } from 'mongodb'
 import mongoose from 'mongoose'
+import { MongoClient, ServerApiVersion } from 'mongodb'
 import cors from 'cors'
 
 const app = express()
 dotenv.config()
 
-const uri = process.env.MONGO_URL
+const mongoUri = process.env.MONGO_URL;
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
+// Connect with mongoose directly. Do not mix MongoClient with mongoose models.
+async function connectDBAndStartServer() {
+  if (!mongoUri) {
+    console.error('No MongoDB URI provided in environment (MONGO_URL or MONGO_URL_LOCAL)');
+    process.exit(1);
   }
-});
 
-async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    const db = await client.db("kaysonclone").command({ ping: 1 });
-    // Tell mongoose to use the existing connection
-    mongoose.connection = client;
-    mongoose.connection.db = db;
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
+    await mongoose.connect(mongoUri, {
+      // Recommended options can be added here if needed
+      // useNewUrlParser and useUnifiedTopology are defaults in newer mongoose
+    });
+    console.log('MongoDB connected (mongoose)');
+
+    // Ensure collections exist using native MongoDB driver (safe even if you mix clients)
+    await ensureCollectionsExist(mongoUri, ['bookings', 'contacts']);
+
+    app.listen(process.env.PORT ?? 3000, () => {
+      console.log('Server running on port', process.env.PORT ?? 3000);
+    });
+  } catch (err) {
+    console.error('Mongo connect error:', err);
+    process.exit(1);
   }
 }
-run().catch(console.dir);
 
-app.listen(process.env.PORT ?? 3000, () => {
-  console.log('Server running')
-})
+connectDBAndStartServer();
 
 
 const router = express.Router()
@@ -96,6 +94,8 @@ router.post('/bookvehicle', async (req, res) => {
       preference: preference
     })
 
+    console.log(newBooking)
+
     await newBooking.save()
 
     res.status(201).json({
@@ -152,3 +152,32 @@ router.post('/contact', async (req, res) => {
 //     res.status(500).json({ message: "server error" })
 //   }
 // })
+
+/**
+ * Ensure collections exist using the native MongoDB driver.
+ * This is a small compatibility helper for setups that mix mongoose and MongoClient.
+ */
+async function ensureCollectionsExist(uri, collections = []) {
+  if (!uri) return;
+  let client;
+  try {
+    client = new MongoClient(uri);
+    await client.connect();
+    const dbName = (new URL(uri.startsWith('mongodb+') ? uri.replace('mongodb+srv://', 'http://') : uri)).pathname?.replace('/', '') || 'kaysonclone';
+    const db = client.db(dbName || 'kaysonclone');
+
+    const existing = await db.listCollections().toArray();
+    const existingNames = existing.map((c) => c.name);
+
+    for (const name of collections) {
+      if (!existingNames.includes(name)) {
+        console.log(`Creating missing collection: ${name}`);
+        await db.createCollection(name);
+      }
+    }
+  } catch (err) {
+    console.warn('ensureCollectionsExist error (non-fatal):', err.message || err);
+  } finally {
+    if (client) await client.close();
+  }
+}
