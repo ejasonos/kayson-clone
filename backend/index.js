@@ -157,7 +157,7 @@ async function ensureCollectionsExist(uri, collections = []) {
   try {
     client = new MongoClient(uri);
     await client.connect();
-    const dbName = (new URL(uri.startsWith('mongodb+') ? uri.replace('mongodb+srv://', 'http://') : uri)).pathname?.replace('/', '') || 'kaysonclone';
+    const dbName = (new URL(uri.startsWith('mongodb+') ? uri.replace('mongodb+srv://', 'https://') : uri)).pathname?.replace('/', '') || 'kaysonclone';
     const db = client.db(dbName || 'kaysonclone');
 
     const existing = await db.listCollections().toArray();
