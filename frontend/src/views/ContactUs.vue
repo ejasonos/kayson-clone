@@ -11,7 +11,7 @@ let message = ref("");
 
 const router = useRouter();
 
-const contactus = async (req, res) => {
+const contactus = async () => {
   try {
     const res = await fetch(
       `${import.meta.env.VITE_BACKEND_BASE_URL}/contact`,
