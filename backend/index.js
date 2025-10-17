@@ -1,13 +1,13 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
-import mongoose from 'mongoose' 
 import { MongoClient, ServerApiVersion } from 'mongodb'
 import cors from 'cors'
 
 const app = express()
 dotenv.config()
 
+// start of database connection code
 const uri = process.env.MONGO_URL;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -32,6 +32,8 @@ async function run() {
   }
 }
 run().catch(console.dir);
+
+// end of database connection code
 
 const router = express.Router()
 
@@ -60,9 +62,6 @@ router.all('/', (req, res) => {
   res.json('Kayson Home Server page')
 })
 
-// import booking from './bookingModel.js' // required for mongoose library
-// import Contact from './contactModel.js' // required for mongoose library
-
 router.get('/bookvehicle', async (req, res) => {
   res.json("Book vehicle server is up")
 })
@@ -76,22 +75,6 @@ router.post('/bookvehicle', async (req, res) => {
       return
     }
 
-    /* // This is for mongoose connection
-    const newBooking = await booking.create({
-      firstname: firstname,
-      surname: surname,
-      phone: phone,
-      email: email,
-      pickuplocation: pickuplocation,
-      pickupdate: pickupdate,
-      time: time,
-      preference: preference
-    })
-
-    await newBooking.save()
-    */
-
-    // This is for mongodb connection
     await client.connect()
     const db = client.db("kaysonclone")
 
@@ -141,17 +124,6 @@ router.post('/contact', async (req, res) => {
     return
   }
 
-  /* // This is for mongoose connection
-  const newContact = await Contact.create({
-    name: name,
-    email: email,
-    subject: subject,
-    message: message
-  })
-  await newContact.save()
-  */
-
-  // This is from mongodb connection
   try {
     await client.connect()
     const db = client.db("kaysonclone")
@@ -178,16 +150,5 @@ router.post('/contact', async (req, res) => {
   finally { await client.close() }
 
 })
-
-// router.get('/complaint', async (req, res) => {
-//   try {
-//     const issues = await Contact.find()
-//     console.log('accessed from api ' + issues)
-//     res.status(200).json(issues) // this returns the issues data to the frontend
-//   } catch (err) {
-//     console.error("Root handler error: ", err)
-//     res.status(500).json({ message: "server error" })
-//   }
-// })
 
 app.listen(process.env.PORT, () => { console.log('Server up and running on port ' + process.env.PORT) })
