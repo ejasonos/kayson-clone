@@ -8,8 +8,7 @@ const app = express()
 dotenv.config()
 
 // start of database connection code
-// const uri = process.env.MONGO_URL;
-const uri = "mongodb+srv://admin:kUHvNCkw3iLn0nk8@cluster0.j5o04ar.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.MONGO_URL;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -41,7 +40,7 @@ const router = express.Router()
 /******** This code helps to resolve route issues from backend to frontend *******/
 
 // Remove for production
-const allowedOrigins = [process.env.BACKEND_URL, process.env.FRONTEND_URL];
+const allowedOrigins = [process.env.BACKEND, process.env.FRONTEND];
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {

@@ -18,7 +18,7 @@ let preference = ref("");
 const bookvehicle = async () => {
   try {
     const res = await fetch(
-      `${import.meta.env.VITE_BACKEND_BASE_URL}/bookvehicle`,
+      `${import.meta.env.VITE_BACKEND}/bookvehicle`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
