@@ -29,12 +29,13 @@ const contactus = async () => {
 
     if (!res.ok) {
       const notifyFailure = () => {
-        toast("Submitted Failed!", {
+        toast("Submission Failed!", {
           autoClose: 3000,
         });
       };
       notifyFailure();
-      res.status(500).json({ message: "Server error" });
+      
+      console.error("Server error");
       return;
     }
 

@@ -42,7 +42,7 @@ const bookvehicle = async () => {
         .catch(() => ({}));
       const notifyFailure = () => {
         toast("Booking Failed!", {
-          autoClose: 3500,
+          autoClose: 3000,
         });
       };
       notifyFailure();
