@@ -52,7 +52,7 @@ const bookvehicle = async () => {
 
     const notifySuccess = () => {
       toast("Booking successfull, we'll get back to you shortly!", {
-        autoClose: 3500,
+        autoClose: 10000,
       });
     };
     notifySuccess();

@@ -43,7 +43,7 @@ const contactus = async () => {
 
     const notifySuccess = () => {
       toast("Submitted request successfully. We will respond shortly!", {
-        autoClose: 3000,
+        autoClose: 10000,
       });
     };
     notifySuccess();
