@@ -1,40 +1,37 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
-import mongoose from 'mongoose'
+import mongoose from 'mongoose' 
 import { MongoClient, ServerApiVersion } from 'mongodb'
 import cors from 'cors'
 
 const app = express()
 dotenv.config()
 
-const mongoUri = process.env.MONGO_URL;
+const uri = process.env.MONGO_URL;
 
-// Connect with mongoose directly. Do not mix MongoClient with mongoose models.
-async function connectDBAndStartServer() {
-  if (!mongoUri) {
-    console.error('No MongoDB URI provided in environment (MONGO_URL or MONGO_URL_LOCAL)');
-    process.exit(1);
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
   }
+});
 
+async function run() {
   try {
-    await mongoose.connect(mongoUri);
-    console.log('MongoDB connected (mongoose)');
-
-    // Ensure collections exist using native MongoDB driver (safe even if you mix clients)
-    await ensureCollectionsExist(mongoUri, ['bookings', 'contacts']);
-
-    app.listen(process.env.PORT ?? 3000, () => {
-      console.log('Server running on port', process.env.PORT ?? 3000);
-    });
-  } catch (err) {
-    console.error('Mongo connect error:', err);
-    process.exit(1);
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("kaysonclone").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
   }
 }
-
-connectDBAndStartServer();
-
+run().catch(console.dir);
 
 const router = express.Router()
 
@@ -42,7 +39,6 @@ const router = express.Router()
 
 // Remove for production
 const allowedOrigins = [process.env.BACKEND_URL, process.env.FRONTEND_URL];
-
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
@@ -54,7 +50,7 @@ const corsOptions = {
 };
 
 //middleware
-app.use(cors(corsOptions)); // remove for production
+app.use(cors(corsOptions));
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
@@ -64,10 +60,10 @@ router.all('/', (req, res) => {
   res.json('Kayson Home Server page')
 })
 
-import booking from './bookingModel.js'
-import Contact from './contactModel.js'
+// import booking from './bookingModel.js' // required for mongoose library
+// import Contact from './contactModel.js' // required for mongoose library
 
-router.get('/bookvehicle', (req, res) => {
+router.get('/bookvehicle', async (req, res) => {
   res.json("Book vehicle server is up")
 })
 router.post('/bookvehicle', async (req, res) => {
@@ -80,6 +76,7 @@ router.post('/bookvehicle', async (req, res) => {
       return
     }
 
+    /* // This is for mongoose connection
     const newBooking = await booking.create({
       firstname: firstname,
       surname: surname,
@@ -92,6 +89,25 @@ router.post('/bookvehicle', async (req, res) => {
     })
 
     await newBooking.save()
+    */
+
+    // This is for mongodb connection
+    await client.connect()
+    const db = client.db("kaysonclone")
+
+    const collName = 'bookings'
+    const existing = await db.listCollections({ name: collName })
+    if (existing.length === 0) {
+      await db.createCollection(collName)
+      console.log('Created collection: ' + collName)
+    }
+
+    const contacts = db.collection(collName)
+    // insert action
+    const result = await contacts.insertOne({
+      firstname: firstname, surname: surname, phone: phone, email: email, pickuplocation: pickuplocation, pickupdate: pickupdate, time: time, preference: preference, createdAt: new Date()
+    })
+    console.log('Inserted id:', result.insertedId)
 
     res.status(201).json({
       message: "User registered successfully",
@@ -111,6 +127,8 @@ router.post('/bookvehicle', async (req, res) => {
     console.error('Booking error', err)
     return res.status(500).json({ message: 'server error', error: err.message })
   }
+  finally { await client.close() }
+
 })
 
 router.post('/contact', async (req, res) => {
@@ -123,6 +141,7 @@ router.post('/contact', async (req, res) => {
     return
   }
 
+  /* // This is for mongoose connection
   const newContact = await Contact.create({
     name: name,
     email: email,
@@ -130,10 +149,34 @@ router.post('/contact', async (req, res) => {
     message: message
   })
   await newContact.save()
+  */
 
-  res.status(201).json({
-    message: "We will respond to you shortly!"
-  })
+  // This is from mongodb connection
+  try {
+    await client.connect()
+    const db = client.db("kaysonclone")
+
+    const collName = 'contacts'
+    const existing = await db.listCollections({ name: collName })
+    if (existing.length === 0) {
+      await db.createCollection(collName)
+      console.log('Created collection: ' + collName)
+    }
+
+    const contacts = db.collection(collName)
+    // insert action
+    const result = await contacts.insertOne({
+      name: name, email: email, subject: subject, message: message, createdAt: new Date()
+    })
+    console.log('Inserted id:', result.insertedId)
+
+    res.status(201).json({
+      message: "We will respond to you shortly!"
+    })
+
+  } catch (err) { throw err }
+  finally { await client.close() }
+
 })
 
 // router.get('/complaint', async (req, res) => {
@@ -147,31 +190,4 @@ router.post('/contact', async (req, res) => {
 //   }
 // })
 
-/**
- * Ensure collections exist using the native MongoDB driver.
- * This is a small compatibility helper for setups that mix mongoose and MongoClient.
- */
-async function ensureCollectionsExist(uri, collections = []) {
-  if (!uri) return;
-  let client;
-  try {
-    client = new MongoClient(uri);
-    await client.connect();
-    const dbName = (new URL(uri.startsWith('mongodb+') ? uri.replace('mongodb+srv://', 'https://') : uri)).pathname?.replace('/', '') || 'kaysonclone';
-    const db = client.db(dbName || 'kaysonclone');
-
-    const existing = await db.listCollections().toArray();
-    const existingNames = existing.map((c) => c.name);
-
-    for (const name of collections) {
-      if (!existingNames.includes(name)) {
-        console.log(`Creating missing collection: ${name}`);
-        await db.createCollection(name);
-      }
-    }
-  } catch (err) {
-    console.warn('ensureCollectionsExist error (non-fatal):', err.message || err);
-  } finally {
-    if (client) await client.close();
-  }
-}
+app.listen(process.env.PORT, () => { console.log('Server up and running on port ' + process.env.PORT) })
