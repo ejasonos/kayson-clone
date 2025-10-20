@@ -39,7 +39,7 @@ const contactus = async () => {
       return;
     }
 
-    const data = await res.json();
+    router.push("/");
 
     const notifySuccess = () => {
       toast("Submitted request successfully. We will respond shortly!", {
@@ -48,7 +48,6 @@ const contactus = async () => {
     };
     notifySuccess();
 
-    router.push("/");
   } catch (err) {
     console.error("Error: " + err);
   }

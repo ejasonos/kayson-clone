@@ -49,6 +49,8 @@ const bookvehicle = async () => {
       console.error("Response error", errBody);
       return;
     }
+    // redirect to home page
+    router.push("/");
 
     const notifySuccess = () => {
       toast("Booking successfull, we'll get back to you shortly!", {
@@ -57,8 +59,6 @@ const bookvehicle = async () => {
     };
     notifySuccess();
 
-    // redirect to home page
-    router.push("/");
   } catch (err) {
     console.error("Failed to get server" + err);
   }
