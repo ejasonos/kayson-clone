@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "The logic of the kayson-clone frontend",
   "main": "index.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "devserver": "nodemon index.js",
     "start": "node index.js"
   },
   "keywords": [
+    "nodejs"
     "nodejs"
   ],
   "author": "Favour Ejakpevweoghene <favejakp@gmail.com>",

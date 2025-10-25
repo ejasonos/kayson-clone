@@ -56,6 +56,6 @@
 Here are some of my highlighted open-source or side projects:
 
 ```md
-- ⚡ [Coming Soon Project]https://github.com/ejasonos
-- 📊 [Dashboard Starter]https://github.com/ejasonos
-- 🌐 [Node.js API Boilerplate]https://github.com/ejasonos
+- ⚡ [Coming Soon Project]https://kayson-clone.vercel.app
+- 📊 [Dashboard Starter]https://medvax-clone.vercel.app
+- 🌐 [Node.js API Boilerplate]https://todolist-app-pi-eight.vercel.app/
