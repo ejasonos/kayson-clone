@@ -1,3 +1,4 @@
+<!-- Profile Banner -->
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com/?lines=Hi+there!+I'm+Favour+Ejakpevweoghene+Onosemuode%2C+a+Full+Stack+Dev;Vue.js+%7C+React.js+%7C+Tailwind+CSS+%7C+Node.js+%7C+MongoDB;&center=true&width=750&height=45&color=38BDF8&pause=1000" alt="Typing SVG" />
 </p>
@@ -12,7 +13,7 @@
 ---
 
 ### 🧠 About Me
-
+- 🎓 **Bsc Computer Engineering**
 - 🔭 Currently building full-stack applications with **Vue**, **React**, **Node**, and **MongoDB**
 - 🎨 Passionate about clean UI with **TailwindCSS** and strong typing using **TypeScript**
 - ⚡ Fun fact: I enjoy turning coffee into scalable web apps
@@ -56,6 +57,6 @@
 Here are some of my highlighted open-source or side projects:
 
 ```md
-- ⚡ [Coming Soon Project]https://kayson-clone.vercel.app
-- 📊 [Dashboard Starter]https://medvax-clone.vercel.app
-- 🌐 [Node.js API Boilerplate]https://todolist-app-pi-eight.vercel.app/
+- ⚡ [Health care management] https://medvax-clone.vercel.app/
+- 📊 [Vehicle hire service] https://kayson-six.vercel.app/
+- 🌐 [Newsletter service] https://newsletter-timeless.vercel.app/
